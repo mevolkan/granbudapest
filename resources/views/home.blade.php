@@ -20,7 +20,7 @@
         </div>
     </div>
 </div> --}}
-<div class="hero-wrap js-fullheight" style="background-image: url('images/image_2.jpg');" data-stellar-background-ratio="0.5">
+<div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('assets/images/image_2.jpg') }}');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
@@ -39,7 +39,7 @@
           <div class="row">
         <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
           <div class="d-block services-wrap text-center">
-            <div class="img" style="background-image: url(images/services-1.jpg);"></div>
+            <div class="img" style="background-image: url('{{ asset('assets/images/services-1.jpg') }}');"></div>
             <div class="media-body py-4 px-3">
               <h3 class="heading">Sheraton</h3>
               <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
@@ -50,7 +50,7 @@
         </div>
         <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
           <div class="d-block services-wrap text-center">
-            <div class="img" style="background-image: url(images/image_4.jpg);"></div>
+            <div class="img" style="background-image: url('{{ asset('assets/images/image_4.jpg') }}');"></div>
             <div class="media-body py-4 px-3">
               <h3 class="heading">The Plaza Hote</h3>
               <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
@@ -61,7 +61,7 @@
         </div>
         <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
           <div class="d-block services-wrap text-center">
-            <div class="img" style="background-image: url(images/image_4.jpg);"></div>
+            <div class="img" style="background-image: url('{{ asset('assets/images/image_4.jpg') }}');"></div>
             <div class="media-body py-4 px-3">
               <h3 class="heading">The Ritz</h3>
               <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
@@ -84,7 +84,7 @@
               <div class="row no-gutters">
               <div class="col-lg-6">
                   <div class="room-wrap d-md-flex">
-                      <a href="#" class="img" style="background-image: url(images/room-1.jpg);"></a>
+                      <a href="#" class="img" style="background-image: url('{{ asset('assets/images/room-1.jpg') }}');"></a>
                       <div class="half left-arrow d-flex align-items-center">
                           <div class="text p-4 p-xl-5 text-center">
                               <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
@@ -103,7 +103,7 @@
               </div>
               <div class="col-lg-6">
                   <div class="room-wrap d-md-flex">
-                      <a href="#" class="img" style="background-image: url(images/room-2.jpg);"></a>
+                      <a href="#" class="img" style="background-image: url('{{ asset('assets/images/room-2.jpg') }}');"></a>
                       <div class="half left-arrow d-flex align-items-center">
                           <div class="text p-4 p-xl-5 text-center">
                               <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
@@ -123,7 +123,7 @@
 
               <div class="col-lg-6">
                   <div class="room-wrap d-md-flex">
-                      <a href="#" class="img order-md-last" style="background-image: url(images/room-3.jpg);"></a>
+                      <a href="#" class="img order-md-last" style="background-image: url('{{ asset('assets/images/room-3.jpg') }}');"></a>
                       <div class="half right-arrow d-flex align-items-center">
                           <div class="text p-4 p-xl-5 text-center">
                               <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
@@ -142,7 +142,7 @@
               </div>
               <div class="col-lg-6">
                   <div class="room-wrap d-md-flex">
-                      <a href="#" class="img order-md-last" style="background-image: url(images/room-4.jpg);"></a>
+                      <a href="#" class="img order-md-last" style="background-image: url('{{ asset('assets/images/room-4.jpg') }}');"></a>
                       <div class="half right-arrow d-flex align-items-center">
                           <div class="text p-4 p-xl-5 text-center">
                               <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
@@ -169,7 +169,7 @@
           <div class="container">
               <div class="row no-gutters">
                   <div class="col-md-6 wrap-about">
-                      <div class="img img-2 mb-4" style="background-image: url(images/image_2.jpg);">
+                      <div class="img img-2 mb-4" style="background-image: url('{{ asset('assets/images/image_2.jpg') }}');">
                       </div>
                       <h2>The most recommended vacation rental</h2>
                       <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
@@ -262,7 +262,7 @@
           </div>
       </section>
       
-      <section class="ftco-intro" style="background-image: url(images/image_2.jpg);" data-stellar-background-ratio="0.5">
+      <section class="ftco-intro" style="background-image: url('{{ asset('assets/images/image_2.jpg') }}');" data-stellar-background-ratio="0.5">
           <div class="overlay"></div>
           <div class="container">
               <div class="row justify-content-center">
