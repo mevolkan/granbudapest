@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('assets/images/image_2.jpg') }}');"
+    <div class="hero-wrap ftco-section ftco-book ftco-no-pt ftco-no-pb js-fullheight" style="background-image: url('{{ asset('assets/images/image_2.jpg') }}');"
         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
@@ -71,5 +71,4 @@
             </div>
         </div>
     </div>
-
 @endsection
