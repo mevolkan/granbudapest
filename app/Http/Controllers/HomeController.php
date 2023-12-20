@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Hotel\hotel
+use App\Models\Hotel\hotel;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $hotel = Hotel::select() ->orderBy('id','desc')->take(3)->get();
+        $hotels = Hotel::select() ->orderBy('id','desc')->take(3)->get();
         return view('home', compact('hotels'));
     }
 }
