@@ -12,4 +12,9 @@ class HotelsController extends Controller
         $getRooms = Apartment::select()->orderBy('id', 'desc')->take(6)->where('hotel_id', $id)->get();
         return view('hotels.rooms', compact('getRooms'));
     }
+
+    public function roomDetails($id){
+        $getRoom = Apartment::find($id);
+        return view('hotels.roomdetails', compact('getRoom'));
+    }
 }
