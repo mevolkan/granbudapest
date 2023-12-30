@@ -10,7 +10,7 @@ use Auth;
 class UsersController extends Controller
 {
    public function myBookings(){
-    $bookings = Booking::select()->orderBy('id','desc')-> where('user_id', Auth::user()->id)->get();
+    $bookings = Booking::select()->orderBy('id','asc')-> where('user_id', Auth::user()->id)->get();
 
     return view('users.bookings', compact('bookings'));
    }
