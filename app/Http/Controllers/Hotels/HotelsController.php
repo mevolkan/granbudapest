@@ -36,7 +36,7 @@ class HotelsController extends Controller
 
             if ($request->check_in < $request->check_out) {
 
-                
+
                 $days = $check_in->diff($check_out);
                 $days = $days->format('%a');
 
@@ -56,20 +56,17 @@ class HotelsController extends Controller
                         // "status" => $request->name,
                     ]
                 );
-                echo "Booked succesfully";
                 $totalPrice = $days * $room->price;
                 $price = Session::put('price', $totalPrice);
 
                 $getPrice = Session::get($price);
-
                 return Redirect::route('hotel.pay');
 
-
                 } else {
-                echo "checkout date is invalid";
+                return Redirect::route('hotel.roomDetails')->with(['error' => 'checkout date is invalid']);
                 }
             } else {
-            echo "invalid check in or check out date";
+            return Redirect::route('hotel.roomDetails')->with(['error' => 'invalid check in or check out date']);
             }
         }
 
@@ -78,9 +75,9 @@ class HotelsController extends Controller
         return view('hotels.pay');
         }
 
-        public function success()
+    public function success()
         {
-            Session::forget('price');
+        Session::forget('price');
         return view('hotels.success');
         }
     }
