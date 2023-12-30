@@ -63,10 +63,10 @@ class HotelsController extends Controller
                 return Redirect::route('hotel.pay');
 
                 } else {
-                return Redirect::route('hotel.roomDetails')->with(['error' => 'checkout date is invalid']);
+                return Redirect::route('hotel.rooms.details', $room->id)->with(['error' => 'checkout date is invalid']);
                 }
             } else {
-            return Redirect::route('hotel.roomDetails')->with(['error' => 'invalid check in or check out date']);
+            return Redirect::route('hotel.rooms.details', $room->id)->with(['error' => 'invalid check in or check out date']);
             }
         }
 

@@ -67,12 +67,15 @@
         </div>
     </section>
 
-@if (session()->has('error'))
-<div class="alert alert-danger">
-{{ session()->get('error') }}
-</div>
+    @if (session()->has('error'))
+    <div class="alert alert-danger">
+    {{ session()->get('error') }}
+    </div>
     
-@endif
+    @endif
+
+
+
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row no-gutters">
