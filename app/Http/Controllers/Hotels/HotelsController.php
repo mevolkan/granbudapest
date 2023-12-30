@@ -9,6 +9,8 @@ use App\Models\Hotel\Hotel;
 use Illuminate\Http\Request;
 use DateTime;
 use Auth;
+use Session;
+use Illuminate\Support\Facades\Redirect;
 
 class HotelsController extends Controller
     {
@@ -25,39 +27,56 @@ class HotelsController extends Controller
         }
     public function roomBooking(Request $request, $id)
         {
-            $room = Apartment::find($id);
-            $hotel = Hotel::find($id);
+        $room = Apartment::find($id);
+        $hotel = Hotel::find($id);
+        $check_in = new DateTime($request->check_in);
+        $check_out = new DateTime($request->check_out);
 
-        if (strval(date("n/j/Y")) < strval($request->check_in) and strval(date("n/j/Y")) < strval($request->check_out)) {
+        if (date("n/j/Y") < $check_in and date("n/j/Y") < $check_out) {
 
             if ($request->check_in < $request->check_out) {
-               
-                $check_in = new DateTime($request->check_in);
-                $check_out = new DateTime($request->check_out);
+
+                
                 $days = $check_in->diff($check_out);
-                $days= $days->format('%a');
+                $days = $days->format('%a');
 
 
-                $bookRooms = Booking::create([
-                    "name" => $request->name,
-                    "email" => $request->email,
-                    "phone_number" => $request->phone_number,
-                    "check_in" => $request->check_in,
-                    "check_out" => $request->check_out,
-                    "days" => $days,
-                    "price" => $days*($room->price),
-                    "user_id" => Auth::user()->id,
-                    "room_id" => $room->id,
-                    "hotel_id" => $hotel->id,
-                    // "status" => $request->name,
-                ]
+                $bookRooms = Booking::create(
+                    [
+                        "name" => $request->name,
+                        "email" => $request->email,
+                        "phone_number" => $request->phone_number,
+                        "check_in" => $request->check_in,
+                        "check_out" => $request->check_out,
+                        "days" => $days,
+                        "price" => $days * ($room->price),
+                        "user_id" => Auth::user()->id,
+                        "room_id" => $room->id,
+                        "hotel_id" => $hotel->id,
+                        // "status" => $request->name,
+                    ]
                 );
-                echo"Booked succesfully";
+                echo "Booked succesfully";
+                $totalPrice = $days * $room->price;
+                $price = Session::put('price', $totalPrice);
+
+                $getPrice = Session::get($price);
+
+                return Redirect::route('hotels.pay');
+
+
                 } else {
                 echo "checkout date is invalid";
                 }
             } else {
             echo "invalid check in or check out date";
+            echo $request->check_in;
+            echo $request->check_out;
             }
+        }
+
+    public function payWithPayPal()
+        {
+        return view('hotels.pay');
         }
     }
