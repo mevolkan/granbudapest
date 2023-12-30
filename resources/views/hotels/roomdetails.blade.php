@@ -57,7 +57,12 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    @if (isset (Auth::user()->id))
                                     <input type="submit" value="Book and Pay Now" class="btn btn-primary py-3 px-4">
+                                    @else 
+                                    <p class="alert alert-success">login to book a room</p>
+                                    @endif
+                                   
                                 </div>
                             </div>
                         </div>
