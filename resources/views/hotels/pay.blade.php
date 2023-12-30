@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <!-- Replace "test" with your own sandbox Business account app client ID -->
-        <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=ATRyO2LH2ZlPGTebHnHrrL1-c0hW58DXa5Pblo-goKxwW6puqxWYmfMT3koF1Oax0CQo6uHccrZ8Cehg&currency=USD"></script>
         <!-- Set up a container element for the button -->
         <div id="paypal-button-container"></div>
         <script>
@@ -13,7 +13,7 @@
                     return actions.order.create({
                         purchase_units: [{
                             amount: {
-                                value: '300' // Can also reference a variable or function
+                                value: '{{ Session::get('price') }}' // Can also reference a variable or function
                             }
                         }]
                     });
@@ -22,7 +22,7 @@
                 onApprove: (data, actions) => {
                     return actions.order.capture().then(function(orderData) {
 
-                        window.location.href = 'index.php';
+                        window.location.href = 'http://127.0.0.1:8000/hotels/success';
                     });
                 }
             }).render('#paypal-button-container');

@@ -62,7 +62,7 @@ class HotelsController extends Controller
 
                 $getPrice = Session::get($price);
 
-                return Redirect::route('hotels.pay');
+                return Redirect::route('hotel.pay');
 
 
                 } else {
@@ -70,13 +70,17 @@ class HotelsController extends Controller
                 }
             } else {
             echo "invalid check in or check out date";
-            echo $request->check_in;
-            echo $request->check_out;
             }
         }
 
     public function payWithPayPal()
         {
         return view('hotels.pay');
+        }
+
+        public function success()
+        {
+            Session::forget('price');
+        return view('hotels.success');
         }
     }
