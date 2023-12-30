@@ -29,3 +29,6 @@ Route::post('hotels/rooms-booking/{id}', [App\Http\Controllers\Hotels\HotelsCont
 //payments
 Route::get('hotels/pay', [App\Http\Controllers\Hotels\HotelsController::class, 'payWithPayPal'])->name('hotel.pay')->middleware('check.price');
 Route::get('hotels/success', [App\Http\Controllers\Hotels\HotelsController::class, 'success'])->name('hotel.success')->middleware('check.price');
+
+//users
+Route::get('users/my-bookings', [App\Http\Controllers\Users\UsersController::class, 'myBookings'])->name('users.bookings');
