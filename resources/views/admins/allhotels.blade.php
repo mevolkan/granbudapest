@@ -13,7 +13,11 @@
                 {{ session()->get('update') }}
                 </div>
                 @endif
-
+                @if (session()->has('delete'))
+                <div class="alert alert-danger">
+                {{ session()->get('delete') }}
+                </div>
+                @endif
                 
                 <div class="card-body">
                     <h5 class="card-title mb-4 d-inline">Hotels</h5>
@@ -40,7 +44,7 @@
                                     <td>1</td>
                                     <td><a href="{{ route('hotels.edit',$hotel->id) }}"
                                             class="btn btn-warning text-white text-center ">Update </a></td>
-                                    <td><a href="delete-category.html" class="btn btn-danger  text-center ">Delete </a></td>
+                                    <td><a href="{{ route('hotels.delete',$hotel->id) }}" class="btn btn-danger  text-center ">Delete </a></td>
                                 </tr>
                             @endforeach
                         </tbody>
