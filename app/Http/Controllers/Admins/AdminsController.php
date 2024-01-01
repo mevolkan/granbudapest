@@ -56,4 +56,9 @@ class AdminsController extends Controller
                 return Redirect::route('admins.all')->with(['success'=>'Admin created successfully']);
             }
         }
+
+        public function allHotels(){
+            $hotels = Hotel::select()->orderBy('id', 'asc')->get();
+            return view('admins.allhotels', compact('hotels'));
+        }
     }
