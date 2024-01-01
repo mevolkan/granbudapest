@@ -62,5 +62,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('/update-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateHotels'])->name('hotels.update');
 
     Route::get('/delete-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteHotels'])->name('hotels.delete');
+    
+    //all rooms
+    Route::get('/all-rooms', [App\Http\Controllers\Admins\AdminsController::class, 'allRoomss'])->name('rooms.all');
+    Route::get('/create-hotels', [App\Http\Controllers\Admins\AdminsController::class, 'createRoomss'])->name('rooms.create');
+    Route::post('/create-hotels', [App\Http\Controllers\Admins\AdminsController::class, 'storeRoomss'])->name('rooms.store');
+
+    Route::get('/edit-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editRoomss'])->name('rooms.edit');
+    Route::post('/update-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateRoomss'])->name('rooms.update');
+
+    Route::get('/delete-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteRoomss'])->name('rooms.delete');
 
     });
