@@ -67,6 +67,14 @@ class AdminsController extends Controller
         }
 
         public function storehotels(Request $request){
+            Request()->validate([
+                "name"=>"required | max:40",
+                "image"=>"required | image| mimes:jpeg,jpg,png|max:1000",
+                "description"=>"required",
+                "location"=>"required | max:40",
+                "amenities"=>"required ",
+            ]);
+
             $destinationPath = 'assets/images/';
             $myimage = $request->image->getClientOriginalName();
             $request->image->move(public_path($destinationPath), $myimage);
