@@ -91,4 +91,23 @@ class AdminsController extends Controller
             }
         }
 
+        public function editHotels($id){
+            $hotel = Hotel::find($id);
+
+            return view('admins.edithotels', compact('hotel'));
+        }
+        public function updateHotels(Request $request, $id){
+            Request()->validate([
+                "name"=>"required | max:40",
+                // "image"=>"required | image| mimes:jpeg,jpg,png|max:1000",
+                "description"=>"required",
+                "location"=>"required | max:40",
+                "amenities"=>"required ",
+            ]);
+            $hotel = Hotel::find($id);
+            $hotel->update($request->all());
+            if($hotel){
+                return Redirect::route('hotels.all')->with(['update'=>'Hotel updated successfully']);
+            }
+        }
     }
