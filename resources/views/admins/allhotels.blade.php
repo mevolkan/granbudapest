@@ -3,9 +3,17 @@
     <div class="row">
         <div class="col">
             <div class="card">
+                @if (session()->has('success'))
+                <div class="alert alert-danger">
+                {{ session()->get('success') }}
+                </div>
+                @endif
+
+                
                 <div class="card-body">
                     <h5 class="card-title mb-4 d-inline">Hotels</h5>
-                    <a href="create-hotels.html" class="btn btn-primary mb-4 text-center float-right">Create Hotels</a>
+                    <a href="{{ route('hotels.create') }}" class="btn btn-primary mb-4 text-center float-right">Create
+                        Hotels</a>
                     <table class="table">
                         <thead>
                             <tr>

@@ -7,7 +7,6 @@
                 @if (session()->has('success'))
                 <div class="alert alert-danger">
                 {{ session()->get('success') }}
-                
                 </div>
                 @endif
                 <div class="card-body">
