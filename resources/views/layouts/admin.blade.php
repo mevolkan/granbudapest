@@ -16,7 +16,7 @@
     <div id="wrapper">
         <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">LOGO</a>
+                <a class="navbar-brand" href="{{ route('admins.dashboard') }}">LOGO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
                     @auth('admin')
                         <ul class="navbar-nav side-nav">
                             <li class="nav-item">
-                                <a class="nav-link" style="margin-left: 20px;" href="index.html">Home
+                                <a class="nav-link" style="margin-left: 20px;" href="{{ route('admins.dashboard') }}">Home
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -50,7 +50,7 @@
                     <ul class="navbar-nav ml-md-auto d-md-flex">
                         @auth('admin')
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home
+                                <a class="nav-link" href="{{ route('admins.dashboard') }}">Home
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -71,7 +71,7 @@
                         </form>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">login
+                                <a class="nav-link" href="{{ route('view.login') }}">login
                                 </a>
                             </li>
                         @endauth
