@@ -12,15 +12,17 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">email</th>
                 <th scope="col">Phone number</th>
                 <th scope="col">Check In</th>
                 <th scope="col">Check Out</th>
                 <th scope="col">Days</th>
                 <th scope="col">Price</th>
+                <th scope="col">Status</th>
                 <th scope="col">Booked By</th>
                 <th scope="col">Room</th>
                 <th scope="col">Hotel</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -34,10 +36,12 @@
                     <td>{{ $booking->check_out }}</td>
                     <td>{{ $booking->days }}</td>
                     <td>{{ $booking->price }}</td>
+                    <td>{{ $booking->status }}</td>
                     <td>{{ $booking->user_id }}</td>
                     <td>{{ $booking->room_id }}</td>
                     <td>{{ $booking->hotel_id }}</td>
-                     <td><a href="delete-posts.html" class="btn btn-danger  text-center ">delete</a></td>
+                     <td><a href="delete-posts.html" class="btn btn-danger  text-center ">Process</a></td>
+                     <td><a href="delete-posts.html" class="btn btn-danger  text-center ">Delete</a></td>
                   </tr>
                 @endforeach
             </tbody>
