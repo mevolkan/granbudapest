@@ -3,6 +3,11 @@
 <div class="row">
     <div class="col">
       <div class="card">
+        @if (session()->has('update'))
+        <div class="alert alert-danger">
+        {{ session()->get('update') }}
+        </div>
+        @endif
         <div class="card-body">
           <h5 class="card-title mb-4 d-inline">Bookings</h5>
         
@@ -40,7 +45,7 @@
                     <td>{{ $booking->user_id }}</td>
                     <td>{{ $booking->room_id }}</td>
                     <td>{{ $booking->hotel_id }}</td>
-                     <td><a href="delete-posts.html" class="btn btn-danger  text-center ">Process</a></td>
+                     <td><a href="{{ route('bookings.edit.status', $booking->id) }}" class="btn btn-waring  text-center ">Process</a></td>
                      <td><a href="delete-posts.html" class="btn btn-danger  text-center ">Delete</a></td>
                   </tr>
                 @endforeach

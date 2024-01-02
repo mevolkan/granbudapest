@@ -220,10 +220,29 @@ class AdminsController extends Controller
             }
         }
 
-        public function allBookings()
+    public function allBookings()
         {
         $bookings = Booking::select()->orderBy('id', 'asc')->get();
         $hotels = Hotel::all();
         return view('admins.allbookings', compact('bookings'));
+        }
+
+    public function editBookings($id)
+        {
+        $booking = Booking::find($id);
+
+        return view('admins.editbooking', compact('booking'));
+        }
+
+    public function updateBookings(Request $request, $id)
+        {
+        Request()->validate([
+            "status" => "required ",
+        ]);
+        $status = Booking::find($id);
+        $status->update($request->all());
+        if ($status) {
+            return Redirect::route('bookings.all')->with(['update' => 'Booking updated successfully']);
+            }
         }
     }
