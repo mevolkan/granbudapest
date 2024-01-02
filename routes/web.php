@@ -77,4 +77,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/all-bookings', [App\Http\Controllers\Admins\AdminsController::class, 'allBookings'])->name('bookings.all');
     Route::get('/edit-bookings/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editBookings'])->name('bookings.edit.status');
     Route::post('/update-bookings/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateBookings'])->name('bookings.update.status');
+    Route::get('/delete-bookings/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteBookings'])->name('bookings.delete');
+
     });

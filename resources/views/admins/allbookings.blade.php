@@ -46,7 +46,7 @@
                     <td>{{ $booking->room_id }}</td>
                     <td>{{ $booking->hotel_id }}</td>
                      <td><a href="{{ route('bookings.edit.status', $booking->id) }}" class="btn btn-waring  text-center ">Process</a></td>
-                     <td><a href="delete-posts.html" class="btn btn-danger  text-center ">Delete</a></td>
+                     <td><a href="{{ route('bookings.delete', $booking->id) }}" class="btn btn-danger  text-center ">Delete</a></td>
                   </tr>
                 @endforeach
             </tbody>
