@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admins;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Admin;
 use App\Models\Apartment\Apartment;
+use App\Models\Booking\Booking;
 use App\Models\Hotel\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -179,7 +180,7 @@ class AdminsController extends Controller
         if ($saveRoom) {
             return Redirect::route('admins.allrooms')->with(['success' => 'Room added successfully']);
             }
-            return Redirect::route('admins.addroom')->with(['error' => 'Room not added']);
+        return Redirect::route('admins.addroom')->with(['error' => 'Room not added']);
         }
 
     public function editRooms($id)
@@ -217,5 +218,12 @@ class AdminsController extends Controller
         if ($room) {
             return Redirect::route('rooms.all')->with(['update' => 'Room deleted successfully']);
             }
+        }
+
+        public function allBookings()
+        {
+        $bookings = Booking::select()->orderBy('id', 'asc')->get();
+        $hotels = Hotel::all();
+        return view('admins.allbookings', compact('bookings'));
         }
     }
