@@ -7,7 +7,6 @@
                     <h5 class="card-title mb-5 d-inline">Add Hotel</h5>
                     <form method="POST" action="{{ route('hotels.store') }}" enctype="multipart/form-data">
                         @csrf
-                        <!-- Email input -->
                         <div class="form-outline mb-4 mt-4">
                             <input type="text" name="name" id="name" class="form-control" placeholder="name" />
                             @if ($errors->has('name'))

@@ -64,13 +64,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/delete-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteHotels'])->name('hotels.delete');
     
     //all rooms
-    Route::get('/all-rooms', [App\Http\Controllers\Admins\AdminsController::class, 'allRoomss'])->name('rooms.all');
-    Route::get('/create-hotels', [App\Http\Controllers\Admins\AdminsController::class, 'createRoomss'])->name('rooms.create');
-    Route::post('/create-hotels', [App\Http\Controllers\Admins\AdminsController::class, 'storeRoomss'])->name('rooms.store');
+    Route::get('/all-rooms', [App\Http\Controllers\Admins\AdminsController::class, 'allRooms'])->name('rooms.all');
+    Route::get('/add-room', [App\Http\Controllers\Admins\AdminsController::class, 'addRoom'])->name('rooms.add');
+    Route::post('/add-room', [App\Http\Controllers\Admins\AdminsController::class, 'saveRoom'])->name('rooms.save');
 
-    Route::get('/edit-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editRoomss'])->name('rooms.edit');
-    Route::post('/update-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateRoomss'])->name('rooms.update');
+    Route::get('/edit-room/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editRooms'])->name('rooms.edit');
+    Route::post('/update-room/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateRooms'])->name('rooms.update');
 
-    Route::get('/delete-hotels/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteRoomss'])->name('rooms.delete');
+    Route::get('/delete-room/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteRooms'])->name('rooms.delete');
 
     });

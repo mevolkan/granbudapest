@@ -72,7 +72,7 @@ class AdminsController extends Controller
         return view('admins.createhotels');
         }
 
-    public function storehotels(Request $request)
+    public function storeHotels(Request $request)
         {
         Request()->validate([
             "name" => "required | max:40",
@@ -132,6 +132,90 @@ class AdminsController extends Controller
 
         if ($hotel) {
             return Redirect::route('hotels.all')->with(['update' => 'Hotel deleted successfully']);
+            }
+        }
+
+    public function allRooms()
+        {
+        $rooms = Apartment::select()->orderBy('id', 'asc')->get();
+        $hotels = Hotel::all();
+        return view('admins.allrooms', compact('rooms'));
+        }
+    public function addRoom()
+        {
+        $hotels = Hotel::all();
+        return view('admins.addroom', compact('hotels'));
+        }
+
+    public function saveRoom(Request $request)
+        {
+        Request()->validate([
+            "name" => "required",
+            "image" => "required | image| mimes:jpeg,jpg,png|max:1000",
+            "people" => "required",
+            "size" => "required",
+            "view" => "required",
+            "beds" => "required",
+            "price" => "required",
+            "rating" => "required ",
+            "hotel_id" => "required",
+        ]);
+
+        $destinationPath = 'assets/images/';
+        $myimage = $request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath), $myimage);
+
+        $saveRoom = Apartment::create([
+            "name" => $request->name,
+            "image" => $myimage,
+            "people" => $request->people,
+            "size" => $request->size,
+            "view" => $request->view,
+            "beds" => $request->beds,
+            "price" => $request->price,
+            "rating" => $request->rating,
+            "hotel_id" => $request->hotel_id,
+        ]);
+        if ($saveRoom) {
+            return Redirect::route('admins.allrooms')->with(['success' => 'Room added successfully']);
+            }
+            return Redirect::route('admins.addroom')->with(['error' => 'Room not added']);
+        }
+
+    public function editRooms($id)
+        {
+        $hotel = Hotel::find($id);
+
+        return view('admins.edithotels', compact('hotel'));
+        }
+    public function updateRooms(Request $request, $id)
+        {
+        Request()->validate([
+            "name" => "required | max:40",
+            // "image"=>"required | image| mimes:jpeg,jpg,png|max:1000",
+            "description" => "required",
+            "location" => "required | max:40",
+            "amenities" => "required ",
+        ]);
+        $hotel = Hotel::find($id);
+        $hotel->update($request->all());
+        if ($hotel) {
+            return Redirect::route('hotels.all')->with(['update' => 'Hotel updated successfully']);
+            }
+        }
+
+    public function deleteRooms($id)
+        {
+        $room = Apartment::find($id);
+        if (File::exists(public_path('assets/images/' . $room->image))) {
+            File::delete(public_path('assets/images/' . $room->image));
+            } else {
+            //dd('File does not exists.');
+            }
+        $room->delete();
+
+        if ($room) {
+            return Redirect::route('rooms.all')->with(['update' => 'Room deleted successfully']);
             }
         }
     }
